@@ -5,12 +5,12 @@ module Int {
   [ Int ]
   signature {
     op 0 : -> Int
-    op s : Int -> Int  -- successor op
+    op s : Int -> Int  -- Nachfolger-Op. (successor)
     op _+_ : Int Int -> Int
   }
   axioms {
     vars N N' : Int
     eq 0 + N = N .
-    eq s(N) + N' = s(N + N') .  -- gives 5 succ's
+    eq s(N) + N' = s(N + N') .  -- liefert 5x den Nachfolger
   }
 }

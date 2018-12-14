@@ -3,13 +3,13 @@
 
 input Set .
 open Set .
-  vars x y z : T
-  var s : Set
-  red isEmpty(insert(x, s)) .   
-  red isIn(x, insert(x, empty)) .
-  red isIn(x, insert(y, insert(y, insert(x, empty)))) .
-  red isIn(y, insert(y, insert(y, insert(x, empty)))) .
-  red isIn(z, insert(y, insert(y, insert(x, empty)))) .
+  vars a b c : T
+  red isEmpty(insert(a, empty)) .   
+  red isIn(a, insert(a, empty)) .
+  let mySet = insert(a, insert(b, insert(a, empty))) .
+  red isIn(a, mySet) .
+  red isIn(b, mySet) .
+  red isIn(c, mySet) .
 close .
 
  

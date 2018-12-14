@@ -2,15 +2,16 @@
 -- Lehreinheit 3.1: ADT Liste mit Items vom Typ T
 -- Hinweis: Sie können dieses Skript in CafeOBJ durch Eingabe von
 --    in ListExample
--- ausführen (ggf. vorher in den Ordner wechseln).
+-- ausführen (ggf. vorher in der CafeOBJ-Konsole mit cd-Befehl in den
+-- Ordner wechseln, in dem sich die Datei ListExample.cafe befindet).
 
 input Int .
 input List .
 open List .
   --> Beispiellauf entspr. Folie 3.1-12:
   vars 1 2 3 : T
-  let l1 = add(3, add(2, add(1, empty))) .
-  red length(l1) .
-  red head(tail(l1)) .
-  red tail(tail(l1)) .
+  let myList = add(3, add(2, add(1, empty))) .
+  red length(myList) .
+  red head(tail(myList)) .
+  red tail(tail(myList)) .
 close .
