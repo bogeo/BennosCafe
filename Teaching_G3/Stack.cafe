@@ -1,0 +1,21 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
+-- Lehreinheit 3.2: ADT Stack mit Items vom Typ T
+
+module Stack {
+  [ Bool, T, Stack ]
+  signature {
+    op empty : -> Stack 
+    op push : Stack T -> Stack 
+    op pop : Stack -> Stack 
+    op top : Stack -> T 
+    op isEmpty : Stack -> Bool
+  }
+  axioms {
+    var s : Stack
+    var x : T
+    eq pop(push(s, x)) = s .
+    eq top(push(s, x)) = x .
+    eq isEmpty(empty) = true .
+    eq isEmpty(push(s, x)) = false .
+  }
+}

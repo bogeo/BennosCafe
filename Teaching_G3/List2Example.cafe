@@ -1,0 +1,22 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Lehreinheit 3.1: ADT Liste mit Items vom Typ T 
+-- (modifizierte Version)
+
+input Int .
+input List2 .
+open List2 .
+  --> Beispiellauf entspr. Folie 3.1-12:
+  vars 1 2 3 : T
+  let l1 = empty add 1 add 2 add 3 .
+  red length l1 .
+  red head tail l1 .
+  red tail tail l1 .
+  --> Beispiel aus Aufgabe 3.1-1:
+  let strList = empty 
+    add Bochum:T 
+    add Dortmund:T
+    add Essen:T .
+  red length strList .
+  red head strList .
+  red head tail strList . 
+close .

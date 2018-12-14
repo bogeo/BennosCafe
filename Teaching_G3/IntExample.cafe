@@ -1,0 +1,11 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Lehreinheit 3.1: ADT "natürliche Zahlen"
+
+input Int .
+open Int .
+  -- Beispielausdrücke:
+  red 0 .
+  red s(0) + 0 .
+  red s(s(0)) + s(s(s(0))) .
+close .
+ 

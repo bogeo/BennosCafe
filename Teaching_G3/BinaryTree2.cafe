@@ -1,0 +1,24 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
+-- Lehreinheit 4.1: ADT Binärbaum mit Items vom Typ T
+-- (modifizierte Operationsnotation)
+
+module BinaryTree2 {
+  [ Bool, T, BinaryTree2 ]
+  signature {
+    op empty : -> BinaryTree2
+    op _bin_ _ : T BinaryTree2 BinaryTree2 -> BinaryTree2
+    op left_ : BinaryTree2 -> BinaryTree2
+    op right_ : BinaryTree2 -> BinaryTree2
+    op content_ : BinaryTree2 -> T
+    op isEmpty_ : BinaryTree2 -> Bool
+  }
+  axioms {
+    vars l r : BinaryTree2
+    var c : T
+    eq left (c bin l r) = l .
+    eq right (c bin l r) = r .
+    eq content (c bin l r) = c . 
+    eq isEmpty empty = true .
+    eq isEmpty (c bin l r) = false .
+  }
+}

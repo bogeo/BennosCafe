@@ -1,0 +1,12 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
+-- Lehreinheit 4.1: ADT Binärbaum mit Items vom Typ T
+
+input BinaryTree2 .
+open BinaryTree2 .
+  vars 1 2 3 : T
+  let t1 = 2 bin empty empty .
+  let t2 = 3 bin empty empty .
+  let root = 1 bin t1 t2 .
+  red content right root .
+  red isEmpty left root .
+close .

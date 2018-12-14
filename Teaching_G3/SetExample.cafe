@@ -1,0 +1,15 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Aufgabe 3.1-5: ADT Menge von Items des Typs T
+
+input Set .
+open Set .
+  vars x y z : T
+  var s : Set
+  red isEmpty(insert(x, s)) .   
+  red isIn(x, insert(x, empty)) .
+  red isIn(x, insert(y, insert(y, insert(x, empty)))) .
+  red isIn(y, insert(y, insert(y, insert(x, empty)))) .
+  red isIn(z, insert(y, insert(y, insert(x, empty)))) .
+close .
+
+ 

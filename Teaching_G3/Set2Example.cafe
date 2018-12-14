@@ -1,0 +1,16 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Aufgabe 3.1-5: ADT Menge von Items des Typs T
+
+input Set2 .
+open Set2 .
+  vars rot gruen blau orange gelb : T
+  let mySet = empty
+    insert rot
+    insert blau
+    insert orange
+    insert blau .
+  red orange isIn mySet .
+  red gelb isIn mySet .
+close .
+
+ 

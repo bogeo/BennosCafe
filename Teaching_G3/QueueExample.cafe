@@ -1,0 +1,10 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Lehreinheit 3.2: ADT Queue 
+
+input Queue .
+open Queue .
+  vars 1 2 3 4 : T
+  let q1 = enter(enter(empty, 1), 3) .
+  red front(q1) .
+  red front(enter(enter(leave(q1), 1), 4)) .
+close .

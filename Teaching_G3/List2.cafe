@@ -1,0 +1,23 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Lehreinheit 3.1: ADT Liste mit Items vom Typ T
+-- (modifizierte Operationsnotation)
+
+module List2 {
+  imports { protecting (Int) }
+  [ Int T List2 ]
+  signature {
+    op empty : -> List2
+    op _add_ : List2 T -> List2 
+    op head_ : List2 -> T
+    op tail_ : List2 -> List2  
+    op length_ : List2 -> Int
+  }
+  axioms {
+    var l : List2
+    var x : T
+    eq head (l add x) = x .
+    eq tail (l add x) = l .
+    eq length empty = 0 .
+    eq length (l add x) = s(length l) . 
+  }
+}

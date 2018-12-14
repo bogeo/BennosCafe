@@ -1,0 +1,23 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Lehreinheit 3.2: ADT Queue 
+
+module Queue {
+  [ Bool, T, Queue]
+  signature {
+    op empty : -> Queue
+    op enter : Queue T -> Queue
+    op leave : Queue -> Queue 
+    op front : Queue -> T
+    op isEmpty : Queue -> Bool
+  }
+  axioms {
+    var q : Queue 
+    vars x y : T
+    eq leave(enter(empty,x)) = empty .
+    eq leave(enter(q,x)) = enter(leave(q),x) .
+    eq front(enter(empty,x)) = x .
+    eq front(enter(q,x)) = front(q) .
+    eq isEmpty(empty) = true .
+    eq isEmpty(enter(q,x)) = false .
+  }
+}

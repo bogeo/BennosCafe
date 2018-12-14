@@ -1,0 +1,22 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
+-- Lehreinheit 3.2: ADT Stack mit Items vom Typ T
+-- (umgekehrte Operationsnotation)
+
+module Stack2 {
+  [ Bool, T, Stack2 ]
+  signature {
+    op empty : -> Stack2 
+    op _ _push : Stack2 T -> Stack2 
+    op _pop : Stack2 -> Stack2 
+    op _top : Stack2 -> T 
+    op _isEmpty : Stack2 -> Bool
+  }
+  axioms {
+    var s : Stack2
+    var x : T
+    eq s x push pop = s .
+    eq s x push top = x .
+    eq empty isEmpty = true .
+    eq s x push isEmpty = false .
+  }
+}

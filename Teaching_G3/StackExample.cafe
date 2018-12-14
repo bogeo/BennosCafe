@@ -1,0 +1,12 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
+-- Lehreinheit 3.2: ADT Stack mit Items vom Typ T
+
+input Stack .
+open Stack .
+  --> Beispiellauf entspr. Folie 3.2-12:
+  vars 1 2 3 : T
+  red top(push(push(empty, 1), 3)) .
+  red top(pop(push(push(empty, 1), 3))) .
+  red top(push(pop(push(push(empty, 1), 3)), 2)) .
+close .
+

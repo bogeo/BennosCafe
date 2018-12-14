@@ -1,0 +1,23 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
+-- Lehreinheit 4.1: ADT Binärbaum mit Items vom Typ T
+
+module BinaryTree {
+  [ Bool, T, BinaryTree ]
+  signature {
+    op empty : -> BinaryTree
+    op bin : BinaryTree T BinaryTree -> BinaryTree
+    op left : BinaryTree -> BinaryTree
+    op right : BinaryTree -> BinaryTree
+    op content : BinaryTree -> T
+    op isEmpty : BinaryTree -> Bool
+  }
+  axioms {
+    vars x y : BinaryTree
+    var b : T
+    eq left(bin(x, b, y)) = x .
+    eq right(bin(x, b, y)) = y .
+    eq content(bin(x, b, y)) = b . 
+    eq isEmpty(empty) = true .
+    eq isEmpty(bin(x, b, y)) = false .
+  }
+}

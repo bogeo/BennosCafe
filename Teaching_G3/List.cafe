@@ -1,0 +1,22 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Lehreinheit 3.1: ADT Liste mit Items vom Typ T
+
+module List {
+  imports { protecting (Int) }
+  [ Int T List ]
+  signature {
+    op empty : -> List
+    op add : T List -> List 
+    op head : List -> T
+    op tail : List -> List  
+    op length : List -> Int
+  }
+  axioms {
+    var l : List
+    var x : T
+    eq head(add(x, l)) = x .
+    eq tail(add(x, l)) = l .
+    eq length(empty) = 0 .
+    eq length(add(x, l)) = s(length(l)) . 
+  }
+}

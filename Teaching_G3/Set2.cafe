@@ -1,0 +1,25 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Aufgabe 3.1-5: ADT Menge von Items des Typs T
+-- (modifizierte Operationsnotation)
+
+module Set2 {
+  [ Bool T Set2 ]
+  signature {
+    op empty : -> Set2
+    op isEmpty_ : Set2 -> Bool
+    op _insert_ : Set2 T -> Set2
+    op _isIn_ : T Set2 -> Bool
+  }
+  axioms {
+    var s : Set2
+    vars x y : T
+    eq isEmpty empty = true .
+    eq isEmpty (s insert x) = false .
+    eq x isIn empty = false .
+    eq x isIn (s insert y) = (x == y) or (x isIn s) .
+    -- alternativ: 
+    -- eq x isIn (s insert y) = 
+    --   if x == y then true else (x isIn s) fi .
+  }
+}
+ 

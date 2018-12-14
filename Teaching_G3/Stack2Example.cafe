@@ -1,0 +1,14 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
+-- Lehreinheit 3.2: ADT Stack mit Items vom Typ T
+-- (umgekehrte Operationsnotation)
+
+input Stack2 .
+open Stack2 .
+  --> Beispiellauf entspr. Folie 3.2-12:
+  vars 1 2 3 : T
+  let myStack = empty 1 push 3 push .
+  red myStack top .
+  red myStack pop top .
+  red myStack pop 2 push top .
+close .
+

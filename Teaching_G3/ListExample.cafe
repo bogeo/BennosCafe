@@ -1,0 +1,16 @@
+-- Lehrveranstaltung "Algorithmen & Datenstrukturen"
+-- Lehreinheit 3.1: ADT Liste mit Items vom Typ T
+-- Hinweis: Sie können dieses Skript in CafeOBJ durch Eingabe von
+--    in ListExample
+-- ausführen (ggf. vorher in den Ordner wechseln).
+
+input Int .
+input List .
+open List .
+  --> Beispiellauf entspr. Folie 3.1-12:
+  vars 1 2 3 : T
+  let l1 = add(3, add(2, add(1, empty))) .
+  red length(l1) .
+  red head(tail(l1)) .
+  red tail(tail(l1)) .
+close .
