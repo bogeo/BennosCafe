@@ -5,5 +5,5 @@ currently we are specifying abstract data types (ADTs) algebraically to model tr
 
 You will find some CafeOBJ code describing the ADTs 'Vertex', 'Triangle', 'TriangleMesh',
 'Tetrahedron' with respect to geospatial applications (e.g. geologic 3-D modelling, terrain
-modelling etc.) here soon!#
+modelling etc.) here soon!
 

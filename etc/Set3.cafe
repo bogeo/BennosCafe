@@ -1,0 +1,59 @@
+-- Another specification of the ADT Set 
+-- (worth being studied)
+
+module Set3 {
+  protecting (NAT)
+  [ Bool Nat T Set3 ]
+  signature {
+    op empty : -> Set3
+    op isEmpty : Set3 -> Bool
+    op _add_ : Set3 T -> Set3  -- 'private' op
+    op _insert_ : Set3 T -> Set3
+    op _isIn_ : T Set3 -> Bool  
+	op _remove_ : Set3 T -> Set3  -- 'private' op
+	op _delete_ : Set3 T -> Set3
+	op size : Set3 -> Nat 
+	op _merge_ _ : Set3 T T -> Set3
+  }
+  axioms {
+    var S : Set3
+    vars x y : T
+    eq isEmpty(empty) = true .
+    eq isEmpty(S add x) = false .
+    eq x isIn empty = false .
+    eq x isIn (S add y) = (x == y) or (x isIn S) .
+    eq empty remove x = empty .	  
+	eq (S add y) remove x = 
+	  if x == y then S else (S remove x) add y fi .
+	eq S insert x =
+	  if x isIn S then S else (S add x) fi .
+	eq S delete x =
+	  if not(x isIn S) then S else (S remove x) fi .
+    eq size(empty) = 0 .
+    eq size(S add x) = 
+      if x isIn S then size(S) else s size(S) fi .  	
+    eq size(S remove x) = 
+      if x isIn S then p size(S) else size(S) fi .
+    eq S merge x y =
+      if (x isIn S) and (y isIn S) 
+      then ((S remove x) remove y) add x 
+	  else S fi .
+  }
+}
+
+open Set3 .
+  let S0 = empty insert 1:T insert 2:T insert 3:T .
+  red size(S0) .
+  red size(S0 delete 2:T) .
+  red size(S0 delete 4:T) .
+  red size(S0 delete 2:T delete 2:T delete 2:T) .
+  let S1 = S0 insert 2:T . 
+  red S1 .
+  red size(S1) .
+  red size(S1 delete 1:T delete 2:T delete 3:T delete 4:T) .
+  red S1 delete 1:T delete 2:T .
+  red size(S1 delete 1:T delete 2:T) .
+  let S2 = S0 delete 3:T insert 4:T insert 8:T .
+  red S2 .
+  red S2 merge 1:T 2:T . 
+close .
