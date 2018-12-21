@@ -1,5 +1,5 @@
 -- Lehrveranstaltung "Algorithmen & Datenstrukturen"
--- Lehreinheit 3.1: ADT "natürliche Zahlen"
+-- Lehreinheit 3.1: ADT "natuerliche Zahlen"
 
 module Int {
   [ Int ]

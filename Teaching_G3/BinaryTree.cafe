@@ -1,5 +1,5 @@
 -- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
--- Lehreinheit 4.1: ADT Binärbaum mit Items vom Typ T
+-- Lehreinheit 4.1: ADT Binaerbaum mit Items vom Typ T
 
 module BinaryTree {
   [ Bool, T, BinaryTree ]

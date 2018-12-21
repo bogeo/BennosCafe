@@ -1,8 +1,8 @@
 -- Lehrveranstaltung "Algorithmen & Datenstrukturen"
 -- Lehreinheit 3.1: ADT Liste mit Items vom Typ T
--- Hinweis: Sie können dieses Skript in CafeOBJ durch Eingabe von
+-- Hinweis: Sie koennen dieses Skript in CafeOBJ durch Eingabe von
 --    in ListExample
--- ausführen (ggf. vorher in der CafeOBJ-Konsole mit cd-Befehl in den
+-- ausfuehren (ggf. vorher in der CafeOBJ-Konsole mit cd-Befehl in den
 -- Ordner wechseln, in dem sich die Datei ListExample.cafe befindet).
 
 input Int .
