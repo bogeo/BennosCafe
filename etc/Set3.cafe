@@ -37,7 +37,7 @@ module Set3 {
     eq S merge x y =
       if (x isIn S) and (y isIn S) 
       then ((S remove x) remove y) add x 
-	  else S fi .
+      else S fi .
   }
 }
 
