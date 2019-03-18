@@ -10,10 +10,10 @@ module Set3 {
     op _add_ : Set3 T -> Set3  -- 'private' op
     op _insert_ : Set3 T -> Set3
     op _isIn_ : T Set3 -> Bool  
-	op _remove_ : Set3 T -> Set3  -- 'private' op
-	op _delete_ : Set3 T -> Set3
-	op size : Set3 -> Nat 
-	op _merge_ _ : Set3 T T -> Set3
+    op _remove_ : Set3 T -> Set3  -- 'private' op
+    op _delete_ : Set3 T -> Set3
+    op size : Set3 -> Nat 
+    op _merge_ _ : Set3 T T -> Set3
   }
   axioms {
     var S : Set3
@@ -23,12 +23,12 @@ module Set3 {
     eq x isIn empty = false .
     eq x isIn (S add y) = (x == y) or (x isIn S) .
     eq empty remove x = empty .	  
-	eq (S add y) remove x = 
-	  if x == y then S else (S remove x) add y fi .
-	eq S insert x =
-	  if x isIn S then S else (S add x) fi .
-	eq S delete x =
-	  if not(x isIn S) then S else (S remove x) fi .
+    eq (S add y) remove x = 
+      if x == y then S else (S remove x) add y fi .
+    eq S insert x =
+      if x isIn S then S else (S add x) fi .
+    eq S delete x =
+      if not(x isIn S) then S else (S remove x) fi .
     eq size(empty) = 0 .
     eq size(S add x) = 
       if x isIn S then size(S) else s size(S) fi .  	
