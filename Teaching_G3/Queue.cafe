@@ -2,7 +2,7 @@
 -- Lehreinheit 3.2: ADT Queue 
 
 module Queue {
-  [ Bool, T, Queue]
+  [ Bool T Queue]
   signature {
     op empty : -> Queue
     op enter : Queue T -> Queue

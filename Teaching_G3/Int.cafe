@@ -11,6 +11,6 @@ module Int {
   axioms {
     vars N N' : Int
     eq 0 + N = N .
-    eq s(N) + N' = s(N + N') .  -- liefert 5x den Nachfolger
+    eq s(N) + N' = s(N + N') . 
   }
 }

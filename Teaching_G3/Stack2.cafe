@@ -3,20 +3,20 @@
 -- (umgekehrte Operationsnotation)
 
 module Stack2 {
-  [ Bool, T, Stack2 ]
+  [ Bool T Stack2 ]
   signature {
     op empty : -> Stack2 
-    op _ _push : Stack2 T -> Stack2 
+    op _push_ : Stack2 T -> Stack2 
     op _pop : Stack2 -> Stack2 
-    op _top : Stack2 -> T 
-    op _isEmpty : Stack2 -> Bool
+    op top : Stack2 -> T 
+    op isEmpty : Stack2 -> Bool
   }
   axioms {
     var s : Stack2
     var x : T
-    eq s x push pop = s .
-    eq s x push top = x .
-    eq empty isEmpty = true .
-    eq s x push isEmpty = false .
+    eq (s push x) pop = s .
+    eq top(s push x) = x .
+    eq isEmpty(empty) = true .
+    eq isEmpty(s push x) = false .
   }
 }

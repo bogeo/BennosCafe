@@ -3,7 +3,7 @@
 -- (modifizierte Operationsnotation)
 
 module BinaryTree2 {
-  [ Bool, T, BinaryTree2 ]
+  [ Bool T BinaryTree2 ]
   signature {
     op empty : -> BinaryTree2
     op _bin_ _ : T BinaryTree2 BinaryTree2 -> BinaryTree2

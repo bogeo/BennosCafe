@@ -6,9 +6,13 @@ input Stack2 .
 open Stack2 .
   --> Beispiellauf entspr. Folie 3.2-12:
   vars 1 2 3 : T
-  let myStack = empty 1 push 3 push .
-  red myStack top .
-  red myStack pop top .
-  red myStack pop 2 push top .
+  let myStack = empty push 1 push 3 .
+  red top(myStack) .
+  red top(myStack pop) .
+  red top(myStack pop push 2) .
+  vars u v : T 
+  red top(empty push u) == v .
+  eq (u == v) = true .
+  red top(empty push u) == v .
 close .
 

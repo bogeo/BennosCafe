@@ -2,7 +2,7 @@
 -- Lehreinheit 4.1: ADT Binaerbaum mit Items vom Typ T
 
 module BinaryTree {
-  [ Bool, T, BinaryTree ]
+  [ Bool T BinaryTree ]
   signature {
     op empty : -> BinaryTree
     op bin : BinaryTree T BinaryTree -> BinaryTree

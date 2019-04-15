@@ -2,7 +2,7 @@
 -- Lehreinheit 3.2: ADT Stack mit Items vom Typ T
 
 module Stack {
-  [ Bool, T, Stack ]
+  [ Bool T Stack ]
   signature {
     op empty : -> Stack 
     op push : Stack T -> Stack 

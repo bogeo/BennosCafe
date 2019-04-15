@@ -6,6 +6,6 @@ open Int .
   -- Beispielausdruecke:
   red 0 .
   red s(0) + 0 .
-  red s(s(0)) + s(s(s(0))) .
+  red s(s(0)) + s(s(s(0))) .  -- liefert 5x den Nachfolger
 close .
  
