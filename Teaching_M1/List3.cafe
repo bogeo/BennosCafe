@@ -11,7 +11,7 @@ module List3 {
     op tail_ : List3 -> List3  
     op length_ : List3 -> Nat
     op _append_ : List3 List3 -> List3
-	op reverse_ : List3 -> List3
+    op reverse_ : List3 -> List3
   }
   axioms {
     vars L L' : List3
@@ -22,8 +22,8 @@ module List3 {
     eq length (L add x) = (length L) + 1 . 
     eq L append empty = L .
     eq L' append (L add x) = (L' append L) add x .
-	eq reverse empty = empty .
-	eq reverse (L add x) = (empty add x) append reverse L .
+    eq reverse empty = empty .
+    eq reverse (L add x) = (empty add x) append reverse L .
   }
 }
 
