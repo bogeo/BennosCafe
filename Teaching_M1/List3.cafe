@@ -1,0 +1,38 @@
+-- Lehrveranstaltung "Software Design"
+-- Lehreinheit 6: ADT Liste mit Items vom Typ T (erweiterte Fassung)
+
+module List3 {
+  protecting (NAT)
+  [ Nat T List3 ]
+  signature {
+    op empty : -> List3
+    op _add_ : List3 T -> List3 
+    op head_ : List3 -> T
+    op tail_ : List3 -> List3  
+    op length_ : List3 -> Nat
+    op _append_ : List3 List3 -> List3
+	op reverse_ : List3 -> List3
+  }
+  axioms {
+    vars L L' : List3
+    var x : T
+    eq head (L add x) = x .
+    eq tail (L add x) = L .
+    eq length empty = 0 .
+    eq length (L add x) = (length L) + 1 . 
+    eq L append empty = L .
+    eq L' append (L add x) = (L' append L) add x .
+	eq reverse empty = empty .
+	eq reverse (L add x) = (empty add x) append reverse L .
+  }
+}
+
+open List3 .
+  red head(empty add x) .
+  red head(tail(empty add 1:T add 2:T)) .
+  let myList = tail(empty add 1:T add 2:T) .
+  red length(myList add 3:T add 4:T) .
+  red (empty add 1:T add 2:T) append (empty add 3:T add 4:T add 5:T) .
+  red reverse (empty add 1:T add 2:T add 3:T) .
+  red reverse ((empty add 1:T add 2:T) append (empty add 3:T add 4:T add 5:T)) .
+close .

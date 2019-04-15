@@ -1,0 +1,30 @@
+-- Lehrveranstaltung "Software Design"
+-- Lehreinheit 6: ADT Liste mit Items vom Typ T
+
+input Int .
+
+module List {
+  imports { protecting (Int) }
+  [ Int T List ]
+
+  op empty : -> List
+  op add : T List -> List 
+  op head : List -> T
+  op tail : List -> List  
+  op length : List -> Int
+
+  var L : List
+  var x : T
+  eq head(add(x, L)) = x .
+  eq tail(add(x, L)) = L .
+  eq length(empty) = 0 .
+  eq length(add(x, L)) = s(length(L)) . 
+}
+
+open List .
+  --> Beispielreduktionen:
+  reduce head(add(x:T, empty)) .
+  reduce head(tail(add(2:T, add(1:T, empty)))) .
+  let myList = tail(add(2:T, add(1:T, empty))) .
+  reduce length(add(1:T, myList)) .
+close .

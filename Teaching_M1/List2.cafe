@@ -1,0 +1,28 @@
+-- Lehrveranstaltung "Software Design"
+-- Lehreinheit 6: ADT Liste mit Items vom Typ T
+-- (modifizierte Operationsnotation und Funktionserweiterung)
+
+module List2 {
+  protecting (NAT)
+  [ Nat T List2 ]
+  signature {
+    op empty : -> List2
+    op _add_ : List2 T -> List2 
+    op length_ : List2 -> Nat
+    op _append_ : List2 List2 -> List2
+  }
+  axioms {
+    vars L L' : List2
+    var x : T
+    eq length empty = 0 .
+    eq length (L add x) = (length L) + 1 . 
+    eq L append empty = L .
+    eq L' append (L add x) = (L' append L) add x .
+  }
+}
+
+open List2 .
+  let myList = (empty add 1:T add 2:T) append (empty add 3:T add 4:T add 5:T) .
+  red myList .
+  red length(myList add 6:T add 7:T) .
+close .
