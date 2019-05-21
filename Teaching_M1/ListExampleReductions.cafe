@@ -1,0 +1,11 @@
+-- Lehrveranstaltung "Software Design"
+-- Lehreinheit 6: ADT Liste mit Items vom Typ T
+-- Hinweis: List.cafe ist vorab zu laden.
+
+open List .
+  --> Beispiele fuer Reduktionen:
+  reduce head(add(x:T, empty)) .
+  reduce head(tail(add(2:T, add(1:T, empty)))) .
+  let myList = tail(add(2:T, add(1:T, empty))) .
+  reduce length(add(1:T, myList)) .
+close .
