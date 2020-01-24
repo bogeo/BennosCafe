@@ -18,12 +18,12 @@ the mapping information files used to generate the Java stubs. This are Java cod
 templates and a configuration file to define substitutions of identifier names.
 
 ## The target code
-The generated Java code has been put to the [target folder]
-(https://github.com/bogeo/BennosCafe/javaBennos/target). Note that it is intended
-to have all those TODOs in the target code to illustrate the working mechanism.
-However, after finishing the CafeOBJ-to-Java mapping transformation, additional 
-code has been added to the stubs to get a very simple runnable POI-recommendation 
-system. This code fragments have been marked with 
+The generated Java code has been put to the 
+[target folder](https://github.com/bogeo/BennosCafe/javaBennos/target). Note that 
+it is intended to have all those TODOs in the target code to illustrate the working 
+mechanism. However, after finishing the CafeOBJ-to-Java mapping transformation, 
+additional code has been added to the stubs to get a very simple runnable 
+POI-recommendation system. This code fragments have been marked with 
 
     // -- { add_impl_begin }
     ...
@@ -34,3 +34,5 @@ comments in the Java code.
 ## Software requirements
 We have been used [CafeOBJ](https://cafeobj.org/) version 1.5.8 to build the 
 executable source module and Java SE 1.6 to run the target model.
+
+Comments and suggestions are welcome!
