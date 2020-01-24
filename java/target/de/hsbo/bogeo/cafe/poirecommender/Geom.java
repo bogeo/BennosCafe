@@ -14,8 +14,8 @@ public class Geom
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Real2 centroid(Geom param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 }

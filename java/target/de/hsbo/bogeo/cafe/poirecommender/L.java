@@ -18,8 +18,8 @@ public class L
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Real2 pos() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -31,8 +31,8 @@ public class L
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Geom geom() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 	
@@ -44,8 +44,8 @@ public class L
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Boolean in(LSet param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 	
@@ -59,14 +59,13 @@ public class L
 	public Boolean has_been_rated_by(U param1) { 
 // -- { add_impl_begin }
 		for (Rt rt : rtList ) {
-			if (rt.u == param1)
-				return true;
+			if (rt.u == param1) return true;
 		}
 		return false;
 /*
 // -- { add_impl_end }
 		// TODO: Add operation implementation
-
+		
 		return null;
 // -- { add_impl_begin }
 */
@@ -83,13 +82,11 @@ public class L
 	public Nat rho(U param1) { 
 // -- { add_impl_begin }
 		for (Rt rt : rtList ) {
-        	if (rt.u == param1) {
-        		return rt.rate;
-        	}
+			if (rt.u == param1) return rt.rate;
 		}
 // -- { add_impl_end }
 		// TODO: Add operation implementation
-
+		
 		return null;
 	}
 	
@@ -106,28 +103,27 @@ public class L
 		ArrayList<Rt> rt_all = RtSet.Rt_all().RtList;
 		ArrayList<U> u_ratings = new ArrayList<U>();		
 		for (Rt rt : rt_all) {
-			if (rt.l == this && !u_ratings.contains(rt.u)) {
+			if (rt.l == this && !u_ratings.contains(rt.u)) 
 				u_ratings.add(rt.u);
-			}
 		}
 		double s1 = 0., s2 = 0.;
 		for (U u : u_ratings) {
-    		Nat x = this.rho(u);
-    		if (x != null) {
-    			Double 
-    				simU = param1.simU(u).val,
-    				rho = (double) x.val;
+			Nat x = this.rho(u);
+			if (x != null) {
+				Double 
+					simU = param1.simU(u).val,
+					rho = (double) x.val;
 				if (!simU.isNaN()) {
 					s1 += simU * rho;
-	        		s2 += Math.abs(simU);
+					s2 += Math.abs(simU);
 				}
-    		}
+			}
 		}
-    	return new Nat((int) Math.round(s1 / s2));
+		return new Nat((int) Math.round(s1 / s2));
 /*
 // -- { add_impl_end }
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 // -- { add_impl_begin }
  */
@@ -142,8 +138,8 @@ public class L
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Nat rho_wrap(U param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 	
@@ -155,8 +151,8 @@ public class L
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Boolean less_than(L param1, U param2) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -168,8 +164,8 @@ public class L
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Boolean check_against_in(L param1, U param2) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 	
@@ -183,7 +179,7 @@ public class L
      * <b>Hint:</b> This method shall be commutative!
 	 */
 	public Percentage simL(L param1) { 
-	    // TODO: Add commutative operation implementation
+		// TODO: Add operation implementation
 
 // -- { add_code_begin }
 		@SuppressWarnings("static-access")
@@ -191,7 +187,7 @@ public class L
 		ArrayList<U> corated = new ArrayList<U>();		
 		for (Rt rt : rt_all) {
 			if (this.has_been_rated_by(rt.u) && param1.has_been_rated_by(rt.u)) {
-				if (!corated.contains(rt.u))
+				if (!corated.contains(rt.u)) 
 					corated.add(rt.u);
 			}
 		}

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class RtSet 
 {
 // -- { add_impl_begin }
-    static ArrayList<Rt> RtList = new ArrayList<Rt>();
+	static ArrayList<Rt> RtList = new ArrayList<Rt>();
 //-- { add_impl_end }
 
 	/**
@@ -22,12 +22,12 @@ public class RtSet
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 // -- { add_impl_begin }
-    static
+	static
 // -- { add_impl_end }
 	public RtSet Rt_all() { 
-	    // TODO: Add operation implementation
+		// TODO: Add operation implementation
 // -- { add_impl_begin }
-        return new RtSet();
+		return new RtSet();
 /*
 // -- { add_impl_end }
 
@@ -40,6 +40,6 @@ public class RtSet
 // -- { add_impl_begin }
 	public void add(Rt r) {
 		RtList.add(r);
-//-- { add_impl_end }
 	}
+//-- { add_impl_end }
 }

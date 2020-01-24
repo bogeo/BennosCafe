@@ -14,21 +14,21 @@ public class Dist
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Dist d(L param1, L param2) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
 	/**
 	 * Representation of operation<br/>
 	 * <br/>
-	 * <tt>op Dist0 : -> Dist</tt><br/>
+	 * <tt>op 0 : -> Dist</tt><br/>
 	 * <br/>
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Dist Dist0() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -40,8 +40,8 @@ public class Dist
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Boolean less_or_equal_than(Dist param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 		
@@ -53,8 +53,8 @@ public class Dist
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Dist plusLoose(Dist param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -66,8 +66,8 @@ public class Dist
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Dist plus(Dist param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 }

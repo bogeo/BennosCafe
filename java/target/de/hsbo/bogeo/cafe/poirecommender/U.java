@@ -18,8 +18,8 @@ public class U
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Boolean geom(USet param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -31,8 +31,8 @@ public class U
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public LSet S() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -44,8 +44,8 @@ public class U
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Boolean visited(L param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 	
@@ -57,8 +57,8 @@ public class U
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public LSet R() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 		
@@ -70,8 +70,8 @@ public class U
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public LSet topN(Nat param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 	
@@ -85,7 +85,7 @@ public class U
      * <b>Hint:</b> This method shall be commutative!
 	 */
 	public Percentage simU(U param1) { 
-	    // TODO: Add commutative operation implementation
+	    // TODO: Add operation implementation
 
 // -- { add_code_begin }
 		@SuppressWarnings("static-access")
@@ -128,8 +128,8 @@ public class U
      * <b>Hint:</b> This method shall be commutative!
 	 */
 	public Percentage simC(U param1) { 
-	    // TODO: Add commutative operation implementation
-
+		// TODO: Add commutative operation implementation
+		
 		return null;
 	}
 }

@@ -14,8 +14,8 @@ public class LSet
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public LSet L_all() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -27,8 +27,8 @@ public class LSet
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Nat card() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -40,8 +40,8 @@ public class LSet
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public LSet diff(LSet param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -53,8 +53,8 @@ public class LSet
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public LSet plus(LSet param1) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 
@@ -68,8 +68,8 @@ public class LSet
      * <b>Hint:</b> This method shall be commutative!
 	 */
 	public Boolean equiv(LSet param1) { 
-	    // TODO: Add commutative operation implementation
-
+		// TODO: Add commutative operation implementation
+		
 		return null;
 	}
 	
@@ -81,8 +81,8 @@ public class LSet
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public Boolean equiv_via(L param1, U param2) { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 	
@@ -94,8 +94,8 @@ public class LSet
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
 	public LSet representative() { 
-	    // TODO: Add operation implementation
-
+		// TODO: Add operation implementation
+		
 		return null;
 	}
 }
