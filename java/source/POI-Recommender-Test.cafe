@@ -1,0 +1,84 @@
+-- ----------------------------------------------------------------------------
+-- Test reductions for POI-Recommender module
+-- Encoding for CafeOBJ version 1.5.8
+-- Geovisualization Lab, Bochum University of Applied Sciences
+
+open POI-Recommender .
+
+  -- Create some object instances for the test scenario:
+  ops l1 l2 : -> L .
+  ops u1 u2 : -> U .
+
+  --> Test reductions for S(u):  
+  eq u1 visited l1 = true . 
+  reduce l1 in S(u1) .            --> true
+  reduce l2 in S(u1) .            --> not determinable here
+  
+  --> Test reductions for recommendable POIs R(u):
+  eq l1 in S(u1) = true .
+  eq l1 in S(u2) = false .
+  reduce l1 in R(u1) .            --> false
+  reduce l1 in R(u2) .            --> true
+  reduce l2 in R(u1) .            --> not determinable here
+  reduce l2 in R(u2) .            --> not determinable here
+
+  --> Some basic constraints that should hold:
+  eq #(L! - S(u1)) = 11 . 
+  eq #(L! - S(u2)) = 9 . 
+  reduce #[R 10 (u1)] .           --> Result: 10
+  reduce #[R 10 (u2)] .           --> Result: 9 
+  
+  --> Reductions to check parts of the rating function specification:
+  eq rho(l1, u1) = 2 . 
+  eq rho(l2, u1) = 3 . 
+  reduce l1 < l2 for u1 .         --> true
+  reduce l2 < l1 for u2 .         --> false
+  reduce l2 < l1 for u2 .         --> Result: rho(l2, u2) < rho(l1 ,u2) 
+
+  --> Top-n-recommendation: 
+  eq l1 in S(u1) = true .
+  eq l1 in S(u2) = false .
+  reduce l1 in R(u1) .            --> false
+  reduce l1 in R(u2) .            --> true
+  reduce l2 in R(u1) .            --> not determinable here
+  reduce l2 in R(u2) .            --> not determinable here
+  -- Set-up test scenario...
+  eq rho+(l1, u1) < rho+(l2, u1) = true .
+  eq l2 in R 10 (u1) = false .  
+  eq l2 in S(u1) = false .  
+  -- ... and check, if l2 violates top-n recommendation criterion:
+  reduce 
+    check l2 
+	against l1 u1 S(u1) 
+	in R 10 (u1) .                --> false
+
+  --> Similarities:
+  reduce simL(l1, l2) .           --> not determinable here
+  reduce simL(l1, l1) .           --> 100%
+  
+  --> ~ relation
+  ops r1 r2 r3 : -> LSet .
+  eq r1 ~ r2 = true .
+  eq r2 ~ r3 = true .
+  reduce r1 ~ r1 .                --> true
+  reduce r3 ~ r2 .                --> true
+  reduce r1 ~ r3 .                --> not determinable here
+  reduce r1 ~ r1 via r2 .         --> true (using workaround)
+
+  --> Some terms dealing with distances:
+  ops pa pb pc : -> L .
+  reduce d(pa, pa) .              --> 0
+  reduce 0 <= d(pa, pb) .         --> not determinable here, but it
+                                  --> would be provable that this is true. 
+  reduce d(pa, pb) 
+    <= d(pa, pc) + d(pb, pc) .    --> not determinable here
+  reduce d(pa, pb) 
+    <= d(pc, pb) + d(pa, pc) .    --> true
+  reduce (0 + d(pa, pb)) + 0 .    --> d(pa, pb)
+  reduce d(pa, pb) 
+    <= d(pc, pb) [+] d(pa, pc) .  --> not determinable here
+  reduce d(pa, pb) 
+    <= d(pa, pc) [+] d(pc, pb) .  --> true
+  reduce (0 [+] d(pa, pb)) + 0 .  --> d(pa, pb)
+
+close .

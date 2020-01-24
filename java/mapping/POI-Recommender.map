@@ -1,0 +1,29 @@
+-- module mapping:
+POI-Recommender ---> de.hsbo.bogeo.cafe.poirecommender
+
+-- sort mappings: 
+--   none
+
+-- operation mappings:
+L!                   -> allL
+U!                   -> allU
+#_                   -> card
+_-_                  -> diff
+_+_                  -> plus
+S(_)                 -> S
+Rt!                  -> allRt
+_has been rated by_  -> hasBeenRatedBy
+rho+                 -> rhoPlus
+rho'                 -> rhoWrap
+_<_for_              -> lessThan
+R(_)                 -> R
+_~_                  -> equiv
+_~_via               -> equivVia
+R_(_)                -> topN
+[_]                  -> representative
+100%                 -> Percentage100
+0                    -> Dist0
+_<=_                 -> lessOrEqualThan
+_[+]_                -> plusLoose
+
+-- end of file
