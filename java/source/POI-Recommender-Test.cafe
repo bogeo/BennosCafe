@@ -49,8 +49,8 @@ open POI-Recommender .
   -- ... and check, if l2 violates top-n recommendation criterion:
   reduce 
     check l2 
-	against l1 u1 S(u1) 
-	in R 10 (u1) .                --> false
+    against l1 u1 S(u1) 
+    in R 10 (u1) .                --> false
 
   --> Similarities:
   reduce simL(l1, l2) .           --> not determinable here

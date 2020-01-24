@@ -20,7 +20,7 @@ module POI-Recommender
     Dist          -- Distances, eg a non-negative real number 
     Real2         -- Geographical 2D positions
     Nat           -- Natural numbers
-	Percentage    -- Real numbers in the range from 0 to 100
+    Percentage    -- Real numbers in the range from 0 to 100
     RhoFunc       -- POI evaluation functions
     RtProbl       -- Recommendation-problem tuples
   ]
@@ -32,7 +32,7 @@ module POI-Recommender
     -- Principally, POI geometry (e.g., a point or polygon) and position  
     -- could be modeled separately, e.g.: 
     op geom : L -> Geom
-	op centroid : Geom -> Real2
+    op centroid : Geom -> Real2
   }
 
   -- L! and U! give the sets of all POIs and all users managed by the system.
@@ -45,7 +45,7 @@ module POI-Recommender
     -- Helpers:
     op #_ : LSet -> Nat         -- cardinality (number of set elements)
     op _-_ : LSet LSet -> LSet  -- difference set
-	op _+_ : LSet LSet -> LSet  -- union set
+    op _+_ : LSet LSet -> LSet  -- union set
   }
   vars l l' : L .  vars u u' : U .
   vars L L' : LSet .
@@ -53,10 +53,10 @@ module POI-Recommender
     eq l in L! = true .         
     eq u in U! = true .
 	
-	ceq l in (L - L') = true  if (l in L) and not(l in L') .  -- @
-	ceq l in (L - L') = false if not(l in L) or (l in L') .  -- @
-	ceq l in (L + L') = true  if (l in L) or (l in L') . -- @
-	ceq l in (L + L') = false if not(l in L) and not(l in L') . -- @
+    ceq l in (L - L') = true  if (l in L) and not(l in L') .
+    ceq l in (L - L') = false if not(l in L) or (l in L') .
+    ceq l in (L + L') = true  if (l in L) or (l in L') .
+    ceq l in (L + L') = false if not(l in L) and not(l in L') .
   }
   
   -- Set of POIs visited by the user u ("check-in sequence")
@@ -72,7 +72,7 @@ module POI-Recommender
   signature {
     op Rt! : -> RtSet  -- set of all ratings in the system
     op rate : U L Nat -> Rt  { constr }
-	pred _has been rated by_ : L U
+    pred _has been rated by_ : L U
     ops rho rho+ rho' : L U -> Nat        
     pred _<_for_ : L L U  -- defines an order
   }
@@ -80,9 +80,9 @@ module POI-Recommender
     eq l < l' for u = rho(l, u) < rho(l', u) . 
     eq l < l' for u = not(l' < l for u). 
 
-	-- Wrapper:	
-	ceq rho'(l, u) = rho(l, u) if l has been rated by u  .
-	ceq rho'(l, u) = rho+(l, u) if not (l has been rated by u) .
+    -- Wrapper:	
+    ceq rho'(l, u) = rho(l, u) if l has been rated by u  .
+    ceq rho'(l, u) = rho+(l, u) if not (l has been rated by u) .
   }
   
   -- POI recommendation, i.e. recommendable POIs
@@ -128,7 +128,7 @@ module POI-Recommender
   signature {
     op simL : L L -> Percentage  { comm }
     ops simU simC : U U -> Percentage  { comm }
-	op 100% : -> Percentage
+    op 100% : -> Percentage
   }
   axioms {
     ceq simL(l, l') = 100% if l = l' .
