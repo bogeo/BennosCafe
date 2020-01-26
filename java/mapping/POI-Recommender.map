@@ -14,11 +14,11 @@ S(_)                 -> S
 Rt!                  -> allRt
 _has been rated by_  -> hasBeenRatedBy
 rho+                 -> rhoPlus
-rho'                 -> rhoWrap
+_~_via               -> 
 _<_for_              -> lessThan
 R(_)                 -> R
 _~_                  -> equiv
-_~_via               -> equivVia
+_~_via               -> 
 R_(_)                -> topN
 [_]                  -> representative
 100%                 -> Percentage100

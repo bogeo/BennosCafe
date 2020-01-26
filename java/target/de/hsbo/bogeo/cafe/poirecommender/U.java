@@ -101,13 +101,13 @@ public class U
 			sij = 0., 
 			sqi = 0., 
 			sqj = 0.,
-			rho_i, rho_j;
+			ri, rj;
 		for (L l : corated) {
-			rho_i = (double) l.rho(this).val;
-			rho_j = (double) l.rho(param1).val;
-			sij += (rho_i * rho_j);
-			sqi += (rho_i * rho_i);
-			sqj += (rho_j * rho_j);
+			ri = (double) l.r(this).asInt();
+			rj = (double) l.r(param1).asInt();
+			sij += (ri * rj);
+			sqi += (ri * ri);
+			sqj += (rj * rj);
 		}
 		return new Percentage(sij / Math.sqrt(sqi * sqj));
 /*

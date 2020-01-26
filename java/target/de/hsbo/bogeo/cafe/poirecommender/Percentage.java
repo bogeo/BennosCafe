@@ -28,11 +28,7 @@ public class Percentage
 	}
 	
 	double val;
-	public Percentage(double val) {
-		this.val = val;
-	}
-	public String toString() {
-		return "" + val;
-	}
+	public Percentage(double val) { this.val = val; }
+	public String toString() { return "" + Math.round(val * 100.) / 100.; }
 // -- { add_code_end }
 }

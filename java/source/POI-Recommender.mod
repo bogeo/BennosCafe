@@ -16,8 +16,10 @@ module POI-Recommender
     USet          -- User sets
     Rt            -- Ratings
     RtSet         -- Rating sets
+	M             -- Rating scales  
+	  < M',       -- Superset used for predictions
     Geom          -- Geometric objects
-    Dist          -- Distances, eg a non-negative real number 
+    Dist          -- Spatial distances, eg non-negative real numbers 
     Real2         -- Geographical 2D positions
     Nat           -- Natural numbers
     Percentage    -- Real numbers in the range from 0 to 100
@@ -68,21 +70,42 @@ module POI-Recommender
     eq l in S(u) = u visited l .
   }
 
-  -- Rating functions (here Nat as concrete impl.)
+  -- Rating functions 
   signature {
     op Rt! : -> RtSet  -- set of all ratings in the system
-    op rate : U L Nat -> Rt  { constr }
+    op rate : U L M -> Rt  { constr }
     pred _has been rated by_ : L U
-    ops rho rho+ rho' : L U -> Nat        
-    pred _<_for_ : L L U  -- defines an order
+    ops r : L U -> M        
+    ops rho rho+ : L U -> M'
+    -- Order declarations:	
+    pred _<_ : M' M'  
+    pred _<_for_ : L L U
+	-- Operations to check postulated properties:
+	pred comparable : M' M' 
+	pred asymmetric : M' M' 
+	-- Workarounds to document transitiveness:
+	pred _<_via_ : M' M' M'  
+	pred _<_via_ : L L L  
   }
+  vars v v' vv : M' .
   axioms {
-    eq l < l' for u = rho(l, u) < rho(l', u) . 
-    eq l < l' for u = not(l' < l for u). 
+    -- Irreflexivity of < on M':
+    ceq v < v' = false if v = v' .  
+    -- Asymmetry of < on M', shall never evaluate to false!
+	ceq asymmetric(v, v') = true   
+	  if (v < v' and not(v' < v)) or (not(v < v') and v' < v) .
+	ceq asymmetric(v, v') = false if v < v' and v' < v .
+	-- Transitivity of < on M', just documented here...
+    ceq v < v' via vv = true if v < vv and vv < v' .
+	-- Trichotomity of < on M', shall always evaluate to true!
+    ceq comparable(v, v') = true if v < v' or v' < v .
+ 	
+    eq l < l' for u = 
+	  rho+(l, u) < rho+(l', u) . 
 
-    -- Wrapper:	
-    ceq rho'(l, u) = rho(l, u) if l has been rated by u  .
-    ceq rho'(l, u) = rho+(l, u) if not (l has been rated by u) .
+    -- Facade:	
+    ceq rho+(l, u) = rho(l, u) if l has been rated by u  .
+    ceq rho+(l, u) = r(l, u) if not (l has been rated by u) .
   }
   
   -- POI recommendation, i.e. recommendable POIs
@@ -91,13 +114,13 @@ module POI-Recommender
     pred _~_ : LSet LSet  { comm }
     pred _~_via_ : LSet LSet LSet  -- workaround to document transitiveness
   }
-  vars r r' v : LSet .
+  vars r r' vr : LSet .
   axioms {
     eq l in R(u) = not(l in S(u)) .  
     -- I.e., recommended POIs may not have been visited by the user.
   
     ceq r ~ r' = true if r = r' .  -- reflexivity 
-    ceq r ~ r' via v = true if r ~ v and v ~ r' .  -- transitivity 
+    ceq r ~ r' via vr = true if r ~ vr and vr ~ r' .  -- transitivity 
   }
                              
   -- Top-n recommendation
@@ -136,7 +159,7 @@ module POI-Recommender
     ceq simC(u, u') = 100% if u = u' .
   }
   
-  -- Distances (quasimetric):
+  -- Spatial distances (quasimetric):
   signature {
     op d : L L -> Dist   -- { bind: 3 }
 	  -- non-commutative 

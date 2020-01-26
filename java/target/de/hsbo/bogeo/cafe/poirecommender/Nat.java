@@ -8,11 +8,7 @@ public class Nat
 {
 //-- { add_impl_begin }
 	public int val;
-	public Nat(int val) {
-		this.val = val;
-	}
-	public String toString() {
-		return "" + val;
-	}
+	public Nat(int val) { this.val = val; }
+	public String toString() { return "" + val; }
 //-- { add_impl_end }
 }

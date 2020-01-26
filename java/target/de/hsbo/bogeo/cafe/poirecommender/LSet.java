@@ -76,19 +76,6 @@ public class LSet
 	/**
 	 * Representation of operation<br/>
 	 * <br/>
-	 * <tt>pred _~_via_ : LSet LSet LSet</tt><br/>
-	 * <br/>
-	 * (from the module <tt>POI-Recommender</tt>).
-	 */
-	public Boolean equiv_via(L param1, U param2) { 
-		// TODO: Add operation implementation
-		
-		return null;
-	}
-	
-	/**
-	 * Representation of operation<br/>
-	 * <br/>
 	 * <tt>op [_] : LSet -> LSet</tt><br/>
 	 * <br/>
 	 * (from the module <tt>POI-Recommender</tt>).

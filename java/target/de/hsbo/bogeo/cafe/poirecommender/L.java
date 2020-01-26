@@ -75,11 +75,11 @@ public class L
 	/**
 	 * Representation of operation<br/>
 	 * <br/>
-	 * <tt>op rho : L U -> Nat</tt><br/>
+	 * <tt>op r : L U -> M</tt><br/>
 	 * <br/>
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
-	public Nat rho(U param1) { 
+	public MRate r(U param1) { 
 // -- { add_impl_begin }
 		for (Rt rt : rtList ) {
 			if (rt.u == param1) return rt.rate;
@@ -93,11 +93,11 @@ public class L
 	/**
 	 * Representation of operation<br/>
 	 * <br/>
-	 * <tt>op rho+ : L U -> Nat</tt><br/>
+	 * <tt>op rho : L U -> M'</tt><br/>
 	 * <br/>
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
-	public Nat rho_plus(U param1) { 
+	public MPredict rho(U param1) { 
 // -- { add_impl_begin }
 		@SuppressWarnings("static-access")
 		ArrayList<Rt> rt_all = RtSet.Rt_all().RtList;
@@ -108,18 +108,18 @@ public class L
 		}
 		double s1 = 0., s2 = 0.;
 		for (U u : u_ratings) {
-			Nat x = this.rho(u);
+			MRate x = this.r(u);
 			if (x != null) {
 				Double 
 					simU = param1.simU(u).val,
-					rho = (double) x.val;
+					r = (double) x.asInt();
 				if (!simU.isNaN()) {
-					s1 += simU * rho;
+					s1 += simU * r;
 					s2 += Math.abs(simU);
 				}
 			}
 		}
-		return new Nat((int) Math.round(s1 / s2));
+		return new MPredict(s1 / s2);
 /*
 // -- { add_impl_end }
 		// TODO: Add operation implementation
@@ -133,11 +133,11 @@ public class L
 	/**
 	 * Representation of operation<br/>
 	 * <br/>
-	 * <tt>op rho' : L U -> Nat</tt><br/>
+	 * <tt>op rho+ : L U -> M'</tt><br/>
 	 * <br/>
 	 * (from the module <tt>POI-Recommender</tt>).
 	 */
-	public Nat rho_wrap(U param1) { 
+	public MPredict rho_plus(U param1) { 
 		// TODO: Add operation implementation
 		
 		return null;
@@ -195,13 +195,13 @@ public class L
 			sij = 0., 
 			sqi = 0., 
 			sqj = 0.,
-			rho_i, rho_j;
+			ri, rj;
 		for (U u : corated) {
-			rho_i = (double) this.rho(u).val;
-			rho_j = (double) param1.rho(u).val;
-			sij += (rho_i * rho_j);
-			sqi += (rho_i * rho_i);
-			sqj += (rho_j * rho_j);
+			ri = (double) this.r(u).asInt();
+			rj = (double) param1.r(u).asInt();
+			sij += (ri * rj);
+			sqi += (ri * ri);
+			sqj += (rj * rj);
 		}
 		return new Percentage(sij / Math.sqrt(sqi * sqj));
 /*
