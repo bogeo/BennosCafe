@@ -1,0 +1,47 @@
+-- ----------------------------------------------------------------------------
+-- Test reductions for POI-Recommender module
+-- Encoding for CafeOBJ version 1.5.8
+-- Geovisualization Lab, Bochum University of Applied Sciences
+
+open POI-Recommender .
+
+  -- Create some object instances for the test scenario:
+  ops l1 l2 l3 : -> L .
+  ops u1 u2 : -> U .
+  ops 1star 2stars 3stars : -> M' .
+  eq r(l1, u1) = 1star .
+  eq r(l2, u1) = 1star .
+  eq r(l3, u1) = 2stars .
+  eq u1 visited l1 = true .
+  eq u1 visited l2 = true .
+  eq u2 visited l1 = true .
+  eq u2 visited l2 = false .
+
+  -- Add-on to allow decision whether a POI has been rated:
+  reduce l2 has been rated by u1 .    --> not determinable
+  ceq l:L has been rated by u:U = 
+    true if 
+      r(l, u) = 1star or 
+      r(l, u) = 2stars or 
+      r(l, u) = 3stars . 
+  reduce l2 has been rated by u1 .    --> now determinable to true
+
+  --> Test reductions:
+  reduce simL(l1, l2) .               --> not determinable
+  reduce simL(l1, l1) .               --> 100%  
+  reduce u1 gives 
+    simL(l1, l2) > 0% .               --> true
+  reduce u1 gives 
+    simL(l1, l2) < 100% .             --> not determinable
+  reduce u1 gives 
+    simL(l1, l3) > 0% .               --> not determinable
+  reduce u1 gives 
+    simL(l1, l3) < 100% .             --> true
+  reduce l1 gives 
+    simC(u1, u2) > 0% .               --> true
+  reduce l2 gives 
+    simC(u1, u2) < 100% .             --> true
+  reduce l2 gives 
+    simC(u2, u1) < 100% .             --> true (commutativity of simC)
+
+close .

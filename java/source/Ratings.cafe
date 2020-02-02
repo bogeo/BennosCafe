@@ -1,0 +1,32 @@
+-- ----------------------------------------------------------------------------
+-- Test reductions for POI-Recommender module (rating subsystem)
+-- Encoding for CafeOBJ version 1.5.8
+-- Geovisualization Lab, Bochum University of Applied Sciences
+
+open POI-Recommender .
+
+  -- Create some object instances for the test scenario:
+  ops l1 l2 : -> L .
+  ops u1 u2 : -> U .
+
+  --> Reductions to check parts of the rating function specification:
+  ops 1star 2stars 3stars : -> M' .
+  eq 1star < 2stars = true .
+  eq 2stars < 3stars = true .
+  eq rho+(l1, u1) = 1star . 
+  eq rho+(l2, u1) = 2stars . 
+  reduce l1 < l2 for u1 .             --> true
+  reduce l2 < l1 for u1 .             --> not determinable
+  reduce l2 < l1 for u2 .             --> Result: rho(l2, u2) < rho(l1 ,u2) 
+  red 1star < 3stars via 2stars .     --> true
+  reduce asymmetric(1star, 1star) .   --> true
+  reduce asymmetric(1star, 2stars) .  --> not determinable
+  reduce 1star < 3stars via 2stars .  --> true
+
+  -- Contradiction tests:
+  eq 2stars < 1star = true .          -- leads to contradiction
+  reduce asymmetric(1star, 2stars) .  --> false (might not occur!)
+  reduce comparable(1star, 2stars) .  --> true
+  reduce comparable(1star, 3stars) .  --> not determinable
+
+close .

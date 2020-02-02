@@ -75,14 +75,13 @@ module POI-Recommender
     op Rt! : -> RtSet  -- set of all ratings in the system
     op rate : U L M -> Rt  { constr }
     pred _has been rated by_ : L U
-    ops r : L U -> M        
+    op r : L U -> M        
     ops rho rho+ : L U -> M'
     -- Order declarations:	
     pred _<_ : M' M'  
     pred _<_for_ : L L U
 	-- Operations to check postulated properties:
-	pred comparable : M' M' 
-	pred asymmetric : M' M' 
+	preds comparable asymmetric : M' M' 
 	-- Workarounds to document transitiveness:
 	pred _<_via_ : M' M' M'  
 	pred _<_via_ : L L L  
@@ -151,17 +150,35 @@ module POI-Recommender
   signature {
     op simL : L L -> Percentage  { comm }
     ops simU simC : U U -> Percentage  { comm }
-    op 100% : -> Percentage
+    ops 0% 100% : -> Percentage
+    preds (_<_) (_>_) : Percentage Percentage
+    op _gives simL(_,_) : U L L -> Percentage   -- { bind: 1 }
+    op _gives simU(_,_) : L U U -> Percentage   -- { bind: 1 }
+    op _gives simC(_,_) : L U U -> Percentage   -- { bind: 1 } 
   }
   axioms {
     ceq simL(l, l') = 100% if l = l' .
     ceq simU(u, u') = 100% if u = u' .
     ceq simC(u, u') = 100% if u = u' .
+    ceq u gives simL(l, l') > 0%   = true 
+      if l =/= l' and r(l, u) = r(l', u).
+    ceq u gives simL(l, l') < 100% = true 
+      if l =/= l' and r(l, u) =/= r(l', u) and l has been rated by u and l' has been rated by u .
+    ceq l gives simU(u, u') > 0%   = true 
+      if u =/= u' and r(l, u) == r(l, u') .
+    ceq l gives simU(u, u') < 100% = true 
+      if u =/= u' and r(l, u) =/= r(l, u') and l has been rated by u and l has been rated by u' .
+    ceq l gives simC(u, u') > 0%   = true 
+      if u =/= u' and l in S(u) and l in S(u') .
+    ceq l gives simC(u, u') < 100% = true 
+      if u =/= u' and l in S(u) and not(l in S(u')) .
+    ceq l gives simC(u, u') < 100% = true 
+      if l gives simC(u', u) < 100% = true .  -- Commutativity of u and u'
   }
   
   -- Spatial distances (quasimetric):
   signature {
-    op d : L L -> Dist   -- { bind: 3 }
+    op d : L L -> Dist   -- { bind: 2 }
 	  -- non-commutative 
     op 0 : -> Dist
     pred _<=_ : Dist Dist

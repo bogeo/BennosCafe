@@ -1,0 +1,17 @@
+-- ----------------------------------------------------------------------------
+-- Test reductions for POI-Recommender module
+-- Encoding for CafeOBJ version 1.5.8
+-- Geovisualization Lab, Bochum University of Applied Sciences
+
+open POI-Recommender .
+
+  -- Create some object instances for the test scenario:
+  ops l1 l2 : -> L .
+  ops u1 u2 : -> U .
+
+  --> Test reductions for S(u):  
+  eq u1 visited l1 = true . 
+  reduce l1 in S(u1) .                --> true
+  reduce l2 in S(u1) .                --> not determinable here
+  
+close .

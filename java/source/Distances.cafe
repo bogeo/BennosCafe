@@ -1,0 +1,24 @@
+-- ----------------------------------------------------------------------------
+-- Test reductions for POI-Recommender module (Dist subsystem)
+-- Encoding for CafeOBJ version 1.5.8
+-- Geovisualization Lab, Bochum University of Applied Sciences
+
+open POI-Recommender .
+
+  --> Some terms dealing with distances:
+  ops pa pb pc : -> L .
+  reduce d(pa, pa) .                  --> 0
+  reduce 0 <= d(pa, pb) .             --> not determinable, but it would be
+                                      --> provable that this is true.
+  reduce d(pa, pb) 
+    <= d(pa, pc) + d(pb, pc) .        --> not determinable
+  reduce d(pa, pb) 
+    <= d(pc, pb) + d(pa, pc) .        --> true
+  reduce (0 + d(pa, pb)) + 0 .        --> d(pa, pb)
+  reduce d(pa, pb) 
+    <= d(pc, pb) [+] d(pa, pc) .      --> not determinable
+  reduce d(pa, pb) 
+    <= d(pa, pc) [+] d(pc, pb) .      --> true
+  reduce (0 [+] d(pa, pb)) + 0 .      --> d(pa, pb)
+
+close .

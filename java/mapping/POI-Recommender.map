@@ -15,7 +15,10 @@ Rt!                  -> allRt
 _has been rated by_  -> hasBeenRatedBy
 rho+                 -> rhoPlus
 _~_via               -> 
+_<_                  -> lessThan
 _<_for_              -> lessThan
+_<=_                 -> lessOrEqualThan
+_>_                  -> greaterThan
 R(_)                 -> R
 _~_                  -> equiv
 _~_via               -> 
@@ -23,7 +26,6 @@ R_(_)                -> topN
 [_]                  -> representative
 100%                 -> Percentage100
 0                    -> Dist0
-_<=_                 -> lessOrEqualThan
 _[+]_                -> plusLoose
 
 -- end of file
