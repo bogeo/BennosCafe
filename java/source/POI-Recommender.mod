@@ -80,11 +80,11 @@ module POI-Recommender
     -- Order declarations:	
     pred _<_ : M' M'  
     pred _<_for_ : L L U
-	-- Operations to check postulated properties:
-	preds comparable asymmetric : M' M' 
-	-- Workarounds to document transitiveness:
-	pred _<_via_ : M' M' M'  
-	pred _<_via_ : L L L  
+    -- Operations to check postulated properties:
+    preds comparable asymmetric : M' M' 
+    -- Workarounds to document transitiveness:
+    pred _<_via_ : M' M' M'  
+    pred _<_via_ : L L L  
   }
   vars v v' vv : M' .
   axioms {
