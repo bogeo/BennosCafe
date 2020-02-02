@@ -16,8 +16,8 @@ module POI-Recommender
     USet          -- User sets
     Rt            -- Ratings
     RtSet         -- Rating sets
-	M             -- Rating scales  
-	  < M',       -- Superset used for predictions
+    M             -- Rating scales  
+      < M',       -- Superset used for predictions
     Geom          -- Geometric objects
     Dist          -- Spatial distances, eg non-negative real numbers 
     Real2         -- Geographical 2D positions
@@ -91,17 +91,17 @@ module POI-Recommender
     -- Irreflexivity of < on M':
     ceq v < v' = false if v = v' .  
     -- Asymmetry of < on M', shall never evaluate to false!
-	ceq asymmetric(v, v') = true   
-	  if (v < v' and not(v' < v)) or (not(v < v') and v' < v) .
-	ceq asymmetric(v, v') = false if v < v' and v' < v .
-	-- Transitivity of < on M', just documented here...
+    ceq asymmetric(v, v') = true   
+      if (v < v' and not(v' < v)) or (not(v < v') and v' < v) .
+    ceq asymmetric(v, v') = false if v < v' and v' < v .
+    -- Transitivity of < on M', just documented here...
     ceq v < v' via vv = true if v < vv and vv < v' .
-	-- Trichotomity of < on M', shall always evaluate to true!
+    -- Trichotomity of < on M', shall always evaluate to true!
     ceq comparable(v, v') = true if v < v' or v' < v .
- 	
+  
     eq l < l' for u = 
-	  rho+(l, u) < rho+(l', u) . 
-
+      rho+(l, u) < rho+(l', u) . 
+  
     -- Facade:	
     ceq rho+(l, u) = rho(l, u) if l has been rated by u  .
     ceq rho+(l, u) = r(l, u) if not (l has been rated by u) .
@@ -179,7 +179,7 @@ module POI-Recommender
   -- Spatial distances (quasimetric):
   signature {
     op d : L L -> Dist   -- { bind: 2 }
-	  -- non-commutative 
+      -- d is non-commutative 
     op 0 : -> Dist
     pred _<=_ : Dist Dist
 	
