@@ -16,8 +16,8 @@ module POI-Recommender
     USet          -- User sets
     Rt            -- Ratings
     RtSet         -- Rating sets
-    M             -- Rating scales  
-      < M',       -- Superset used for predictions
+    M             -- Rating scales
+	  < M',       -- Superset used for predictions
     Geom          -- Geometric objects
     Dist          -- Spatial distances, eg non-negative real numbers 
     Real2         -- Geographical 2D positions
