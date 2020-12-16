@@ -1,12 +1,15 @@
 -- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
 -- Lehreinheit 4.1: ADT Binaerbaum mit Items vom Typ T
 
+-- Das Modul "BinaryTree" lässt sich über den Befehl 
+-- "input BinaryTreeExample.cafe" in CafeOBJ laden und testen.
+
 input BinaryTree .
 open BinaryTree .
   vars 1 2 3 : T
   let t1 = bin(empty, 2, empty) .
   let t2 = bin(empty, 3, empty) .
   let root = bin(t1, 1, t2) .
-  red content(right(root)) .
-  red content(left(t2)) .
+  reduce content(right(root)) .
+  reduce content(left(t2)) .
 close .

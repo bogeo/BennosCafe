@@ -1,12 +1,20 @@
 -- Lehrveranstaltung "Algorithmen & Datenstrukturen" 
 -- Lehreinheit 3.2: ADT Stack mit Items vom Typ T
 
+-- Das Modul "Stack" lässt sich über den Befehl 
+-- "input StackExample.cafe" in CafeOBJ laden und testen.
+
 input Stack .
 open Stack .
   --> Beispiellauf entspr. Folie 3.2-12:
-  vars 1 2 3 : T
-  red top(push(push(empty, 1), 3)) .
-  red top(pop(push(push(empty, 1), 3))) .
-  red top(push(pop(push(push(empty, 1), 3)), 2)) .
+  vars 1 2 3 : T 
+  let s0 = empty .
+  let s1 = push(s0, 1) . 
+  let s2 = push(s1, 3) .
+  reduce top(s2) .
+  let s3 = pop(s2) .
+  reduce top(s3) .
+  let s4 = push(s1, 2) .
+  reduce top(s4) .
 close .
 

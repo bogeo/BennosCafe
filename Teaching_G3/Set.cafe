@@ -6,16 +6,16 @@ module Set {
   signature {
     op empty : -> Set
     op isEmpty : Set -> Bool
-    op insert : T Set -> Set
+    op insert : Set T -> Set
     op isIn : T Set -> Bool
   }
   axioms {
     var s : Set
     vars x y : T
     eq isEmpty(empty) = true .
-    eq isEmpty(insert(x,s)) = false .
-    eq isIn(x,empty) = false .
-    eq isIn(x,insert(y,s)) = (x == y) or isIn(x,s) .
+    eq isEmpty(insert(s, x)) = false .
+    eq isIn(x, empty) = false .
+    eq isIn(y, insert(s, x)) = (x == y) or isIn(y, s) .
   }
 }
  

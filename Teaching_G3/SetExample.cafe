@@ -1,15 +1,19 @@
 -- Lehrveranstaltung "Algorithmen & Datenstrukturen"
 -- Aufgabe 3.1-5: ADT Menge von Items des Typs T
 
+-- Das Modul "Set" lässt sich über den Befehl 
+-- "input SetExample.cafe" in CafeOBJ laden und testen.
+
 input Set .
 open Set .
   vars a b c : T
-  red isEmpty(insert(a, empty)) .   
-  red isIn(a, insert(a, empty)) .
-  let mySet = insert(a, insert(b, insert(a, empty))) .
-  red isIn(a, mySet) .
-  red isIn(b, mySet) .
-  red isIn(c, mySet) .
+  let s0 = empty .
+  let s1 = insert(s0, a) .
+  let s2 = insert(s1, b) .
+  let s3 = insert(s2, a) .
+  red isIn(a, s3) .
+  red isIn(b, s3) .
+  red isIn(c, s3) .
 close .
 
  
